@@ -1,3 +1,8 @@
+# 13 September 2018
+* created new branch dev
+* shifted bash scripts into `scripts` folder
+* adjusted `README.md' accordingly  
+
 # 12 September 2018
 * updated requirements.txt
 * removed service.sh as it is renamed to conf_servivice.sh

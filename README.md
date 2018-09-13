@@ -56,17 +56,6 @@ This repository isn't really anything genuine: I owe big thanks to many contribu
 sudo apt install -y git
 ```
 
-* With preparations out of the way clone this repository into the home directory of user ***pi***
-
-```bash
-git clone https://github.com/kleinee/jns
-```
-
-* Change into the new directory `jns` just created with `git`:
-
-```bash
-cd ~/jns
-```
 * To increase the size of swap_file to 2048MB run:
 ```bash
 sudo sed -i -e 's/CONF_SWAPSIZE=100/CONF_SWAPSIZE=2048/' /etc/dphys-swapfile
@@ -74,7 +63,20 @@ sudo /etc/init.d/dphys-swapfile stop
 sudo /etc/init.d/dphys-swapfile start
 ```
 
-Technically you can now run `sudo ./inst_jns.sh` which is the installer script that combines the steps described below.  If you follow along I assume that you run all scripts from inside the directory `~/jns`.
+* With preparations out of the way clone this repository into the home directory of user ***pi***
+
+```bash
+git clone https://github.com/kleinee/jns
+```
+* Change into the new directory `~/jns/scripts` just created with `git`:
+
+```bash
+cd ~/jns/scripts
+```
+
+Technically you can now run `sudo ./inst_jns.sh` which is the installer script that combines the steps described below.  If you follow along I assume that you run all scripts from inside the directory `~/jns/scripts`.
+
+You might not want all features on your system. Feel free to edit `inst_jns.sh' to suit your requirements.
 
 ## Install required Raspbian packages with apt
 
