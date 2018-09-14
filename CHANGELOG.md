@@ -1,12 +1,10 @@
-<<<<<<< HEAD
+# 14 Septmber 2018
+* updated requirements.txt
+
 # 13 September 2018
 * created new branch dev
 * shifted bash scripts into `scripts` folder
-* adjusted `README.md' accordingly  
-=======
-# 14 Septmber 2018
-* updated requirements.txt
->>>>>>> master
+* adjusted `README.md' accordingly
 
 # 12 September 2018
 * updated requirements.txt
