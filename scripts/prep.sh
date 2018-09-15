@@ -11,6 +11,11 @@ if ! [ $(id -u) = 0 ]; then
    exit 1
 fi
 
+# increase SWAP_SIZE
+sed -i -e 's/CONF_SWAPSIZE=100/CONF_SWAPSIZE=2048/' /etc/dphys-swapfile
+/etc/init.d/dphys-swapfile stop
+/etc/init.d/dphys-swapfile start
+
 apt update && apt -y upgrade
 apt -y install pandoc
 apt -y install libxml2-dev libxslt-dev
