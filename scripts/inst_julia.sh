@@ -4,6 +4,7 @@
 # sudo:            yes
 
 script_name=$(basename -- "$0")
+env=~/.venv/jns
 SECONDS=0
 
 if ! [ $(id -u) = 0 ]; then
@@ -14,6 +15,7 @@ fi
 apt -y install julia
 
 su pi <<EOF
+source $env/bin/activate
 julia -e 'Pkg.add("IJulia");'
 julia -e 'using IJulia;'
 EOF
