@@ -4,7 +4,7 @@
 # sudo:            yes
 
 script_name=$(basename -- "$0")
-env=~/.venv/jns
+env=/home/pi/.venv/jns
 SECONDS=0
 
 if ! [ $(id -u) = 0 ]; then
