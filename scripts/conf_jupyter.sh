@@ -1,10 +1,11 @@
 #!/bin/bash
 # script name:     conf_jupyter.sh
-# last modified:   2018/09/09
+# last modified:   2018/09/18
 # sudo:            no
 
 script_name=$(basename -- "$0")
 env="/home/pi/.venv/jns"
+SECONDS=0
 
 if [ $(id -u) = 0 ]
 then
@@ -74,4 +75,4 @@ fi
 
 # install jupyter lab extensions
 bash -i ./inst_lab_ext.sh
-
+echo $script_name,$SECONDS >> jns_log.csv

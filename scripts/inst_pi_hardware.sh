@@ -1,10 +1,11 @@
 #!/bin/bash
 # script name:     inst_pi_hardware.sh
-# last modified:   2018/01/14
+# last modified:   2018/09/18
 # sudo: no
 
 script_name=$(basename -- "$0")
 env="/home/pi/.venv/jns"
+SECONDS=0
 
 if [ $(id -u) = 0 ]
 then
@@ -19,13 +20,14 @@ git clone https://github.com/RPi-Distro/RTIMULib
 
 cd ./RTIMULib/Linux/python/
 
-python3 setup.py build
-python3 setup.py install
+python setup.py build
+python setup.py install
 
 cd /home/pi/jns
 
 rm -rf RTIMULib
 
-pip3 install sense-hat
-pip3 install picamera
-pip3 install gpiozero
+pip install sense-hat
+pip install picamera
+pip install gpiozero
+echo $script_name,$SECONDS >> jns_log.csv

@@ -1,10 +1,11 @@
 #!/bin/bash
 # script name:     conf_service.sh
-# last modified:   2018/08/12
+# last modified:   2018/09/15
 # credits:         mt08xx
 # sudo:            yes
 
 script_name=$(basename -- "$0")
+SECONDS=0
 
 if ! [ $(id -u) = 0 ]; then
    echo "usage: sudo ./$script_name"
@@ -12,14 +13,16 @@ if ! [ $(id -u) = 0 ]; then
 fi
 
 # create jupyter.sh in /home/pi and make it executable
-cat << 'ONE' > /home/pi/jupyter_start.sh && chmod a+x /home/pi/jupyter_start.sh
+cat << 'ONE'
+> /home/pi/jupyter_start.sh && chmod a+x /home/pi/jupyter_start.sh
 #!/bin/bash
 . /home/pi/.venv/jns/bin/activate
 jupyter lab
 #jupyter notebook
 ONE
 
-cat << 'TWO' | sudo tee /etc/systemd/system/jupyter.service
+cat << 'TWO'
+| sudo tee /etc/systemd/system/jupyter.service
 [Unit]
 Description=Jupyter
 
@@ -40,3 +43,4 @@ TWO
 systemctl daemon-reload
 systemctl start jupyter
 systemctl enable jupyter
+echo $script_name,$SECONDS >> jns_log.csv

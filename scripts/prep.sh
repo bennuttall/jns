@@ -1,9 +1,10 @@
 #!/bin/bash
 # script name:     prep.sh
-# last modified:   2018/09/09
+# last modified:   2018/09/15
 # sudo:            yes
 
 script_name=$(basename -- "$0")
+SECONDS=0
 
 if ! [ $(id -u) = 0 ]; then
    echo "usage: sudo ./$script_name"
@@ -25,4 +26,4 @@ apt -y install python3-pip
 apt -y install python3-venv
 apt -y install libzmq3-dev
 apt -y install sqlite3
- 
+echo $script_name,$SECONDS >> jns_log.csv 

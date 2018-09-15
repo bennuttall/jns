@@ -1,10 +1,11 @@
 #!/bin/bash
 # script name:     inst_opencv.sh
-# last modified:   2018/09/09
+# last modified:   2018/09/15
 # sudo:            yes
 
 script_name=$(basename -- "$0")
 env="/home/pi/.venv/jns"
+SECONDS=0
 
 if ! [ $(id -u) = 0 ]; then
    echo "usage: sudo ./$script_name"
@@ -33,4 +34,4 @@ su - pi <<'EOF'
 source /home/pi/.venv/jns/bin/activate
 pip install opencv-python-headless
 EOF
-
+echo $script_name,$SECONDS >> jns_log.csv
