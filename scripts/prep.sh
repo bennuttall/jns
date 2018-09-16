@@ -37,3 +37,4 @@ apt -y install python3-venv
 apt -y install libzmq3-dev
 apt -y install sqlite3
 echo $(date),$script_name,$SECONDS >> $log_file
+chown pi:pi installation_log.csv

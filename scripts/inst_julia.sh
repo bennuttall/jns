@@ -23,4 +23,4 @@ source $env/bin/activate
 julia -e 'Pkg.add("IJulia");'
 julia -e 'using IJulia;'
 EOF
-echo $(date),$script_name,$SECONDS >> jns_log.csv
+echo $(date),$script_name,$SECONDS >> $log_file

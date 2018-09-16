@@ -27,6 +27,6 @@ git clone https://github.com/brownan/sqlite3-kernel.git
 cd sqlite3-kernel
 python setup.py install
 python -m sqlite3_kernel.install
-cd ..
+cd $script_dir
 rm -rf sqlite3-kernel/
 echo i$(date),$script_name,$SECONDS >> $log_file

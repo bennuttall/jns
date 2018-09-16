@@ -5,7 +5,7 @@
 
 SECONDS=0
 script_name=$(basename -- "$0")
-script_dir=$(pwd)
+script_dir=`dirname $0`
 log_file="$script_dir/installation_log.csv"
 jns_user='pi'
 home_dir="/home/$jns_user"
@@ -77,4 +77,4 @@ fi
 
 # install jupyter lab extensions
 bash -i $script_dir/inst_lab_ext.sh
-ECHO $(DAte),$script_name,$SECONDS >> $log_file
+echo $(date),$script_name,$SECONDS >> $log_file

@@ -38,4 +38,4 @@ su - pi <<EOF
 source $env/jns/bin/activate
 pip install opencv-python-headless
 EOF
-echo $(date),$script_name,$SECONDS >> jns_log.csv
+echo $(date),$script_name,$SECONDS >> $installation_log

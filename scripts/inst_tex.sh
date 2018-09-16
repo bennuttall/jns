@@ -20,4 +20,4 @@ fi
 apt install -y texlive-xetex
 apt install -y latexmk
 #------------------------------------------------------
-echo $(date),$script_name,$SECONDS >> log_file
+echo $(date),$script_name,$SECONDS >> $log_file

@@ -5,10 +5,10 @@
 
 SECONDS=0
 script_name=$(basename -- "$0")
-script_directory=`dirname $0`
+script_dir=$(pwd)
 log_file="$script_directory/installation_log.csv"
 jns_user='pi'
-home_directory="/home/$jns_user"
+home_dir="/home/$jns_user"
 env="$home_directory/.venv/jns"
 
 if [ $(id -u) = 0 ]
@@ -27,7 +27,7 @@ cd ./RTIMULib/Linux/python/
 python setup.py build
 python setup.py install
 
-cd $script_directory
+cd $script_dir
 
 rm -rf RTIMULib
 
