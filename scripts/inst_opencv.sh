@@ -38,4 +38,4 @@ su - pi <<EOF
 source $env/bin/activate
 pip install opencv-python-headless
 EOF
-echo $(date),$script_name,$SECONDS >> $installation_log
+echo $(date),$script_name,$SECONDS >> $log_file
