@@ -5,6 +5,7 @@
 
 script_name=$(basename -- "$0")
 env="/home/pi/.venv/jns"
+cwd=$(pwd)
 SECONDS=0
 
 if [ $(id -u) = 0 ]
@@ -66,13 +67,12 @@ if which node > /dev/null
         echo "node is installed, skipping..."
     else
         # install nodejs and node version manager n
-        cd ~/jns
-        # fix for issue #22
-        # install nodejs and node version manager n
-        # see: https://github.com/mklement0/n-install
+        cd $home
         curl -L https://git.io/n-install | bash -s -- -y lts
+        
 fi
 
 # install jupyter lab extensions
-bash -i ./inst_lab_ext.sh
+bash -i $cwd/inst_lab_ext.sh
+cd $cwd
 echo $script_name,$SECONDS >> jns_log.csv
