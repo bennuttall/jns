@@ -35,7 +35,7 @@ apt install -y libx264-dev
 #------------------------------------------------------
 
 su - pi <<EOF
-source $env/jns/bin/activate
+source $env/bin/activate
 pip install opencv-python-headless
 EOF
 echo $(date),$script_name,$SECONDS >> $installation_log
