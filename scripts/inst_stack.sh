@@ -3,9 +3,13 @@
 # last modified:   2018/09/15
 # sudo: no
 
-script_name=$(basename -- "$0")
-env="/home/pi/.venv/jns"
 SECONDS=0
+script_name=$(basename -- "$0")
+script_dir=$(pwd)
+log_file="$script_dir/installation_log.csv"
+jns_user='pi'
+home_dir="/home/$jns_user"
+env="$home_dir/.venv/jns"
 
 if [ $(id -u) = 0 ]
 then
@@ -25,4 +29,4 @@ pip3 install setuptools
 pip3 install -U pip
 
 cat requirements.txt | xargs -n 1 pip install
-echo $script_name,$SECONDS >> jns_log.csv
+echo $(date),$script_name,$SECONDS >> $log_file

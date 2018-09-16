@@ -3,9 +3,13 @@
 # last modified:   2018/09/18
 # sudo: no
 
-script_name=$(basename -- "$0")
-env="/home/pi/.venv/jns"
 SECONDS=0
+script_name=$(basename -- "$0")
+script_directory=`dirname $0`
+log_file="$script_directory/installation_log.csv"
+jns_user='pi'
+home_directory="/home/$jns_user"
+env="$home_directory/.venv/jns"
 
 if [ $(id -u) = 0 ]
 then
@@ -23,11 +27,11 @@ cd ./RTIMULib/Linux/python/
 python setup.py build
 python setup.py install
 
-cd /home/pi/jns
+cd $script_directory
 
 rm -rf RTIMULib
 
 pip install sense-hat
 pip install picamera
 pip install gpiozero
-echo $script_name,$SECONDS >> jns_log.csv
+echo $(date),$script_name,$SECONDS >> $log_file

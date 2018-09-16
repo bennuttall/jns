@@ -3,10 +3,13 @@
 # last modified:   2018/09/18
 # sudo:            no
 
-script_name=$(basename -- "$0")
-env="/home/pi/.venv/jns"
-cwd=$(pwd)
 SECONDS=0
+script_name=$(basename -- "$0")
+script_dir=`dirname $0`
+log_file="$script_dir/installation_log.csv"
+jns_user='pi'
+home_dir="/home/$jns_user"
+env="$home_dir/.venv/jns"
 
 if [ $(id -u) = 0 ]
 then
@@ -22,10 +25,10 @@ source $env/bin/activate
 # if configuration file exeists, we overwrite it (-y)
 
 jupyter notebook -y --generate-config
-cd $home
+cd $home_dir
 mkdir -p notebooks
 
-target=~/.jupyter/jupyter_notebook_config.py
+target=$home_dir/.jupyter/jupyter_notebook_config.py
 
 # set up dictionary of changes for jupyter_config.py
 declare -A arr
@@ -73,6 +76,6 @@ if which node > /dev/null
 fi
 
 # install jupyter lab extensions
-bash -i $cwd/inst_lab_ext.sh
+bash -i $script_dir/inst_lab_ext.sh
 cd $cwd
-echo $script_name,$SECONDS >> jns_log.csv
+echo $(date),$script_name,$SECONDS >> $log_file

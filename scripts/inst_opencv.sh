@@ -3,9 +3,13 @@
 # last modified:   2018/09/15
 # sudo:            yes
 
-script_name=$(basename -- "$0")
-env="/home/pi/.venv/jns"
 SECONDS=0
+script_name=$(basename -- "$0")
+script_dir=$(pwd)
+log_file="$script_dir/installation_log.csv"
+jns_user='pi'
+home_dir="/home/$jns_user"
+env="$home_dir/.venv/jns"
 
 if ! [ $(id -u) = 0 ]; then
    echo "usage: sudo ./$script_name"
@@ -30,8 +34,8 @@ apt install -y libxvidcore-dev
 apt install -y libx264-dev
 #------------------------------------------------------
 
-su - pi <<'EOF'
-source /home/pi/.venv/jns/bin/activate
+su - pi <<EOF
+source $env/jns/bin/activate
 pip install opencv-python-headless
 EOF
-echo $script_name,$SECONDS >> jns_log.csv
+echo $(date),$script_name,$SECONDS >> jns_log.csv
