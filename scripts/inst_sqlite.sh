@@ -29,4 +29,4 @@ python setup.py install
 python -m sqlite3_kernel.install
 cd $script_dir
 rm -rf sqlite3-kernel/
-echo i$(date),$script_name,$SECONDS >> $log_file
+echo $(date),$script_name,$SECONDS >> $log_file
