@@ -16,6 +16,10 @@ if ! [ $(id -u) = 0 ]; then
    exit 1
 fi
 
+# create simple log file
+touch $log_file
+chown pi:pi installation_log.csv
+
 # increase SWAP_SIZE
 sed -i -e 's/CONF_SWAPSIZE=100/CONF_SWAPSIZE=2048/' /etc/dphys-swapfile
 /etc/init.d/dphys-swapfile stop
@@ -36,5 +40,5 @@ apt -y install python3-pip
 apt -y install python3-venv
 apt -y install libzmq3-dev
 apt -y install sqlite3
+
 echo $(date),$script_name,$SECONDS >> $log_file
-chown pi:pi installation_log.csv
