@@ -77,4 +77,4 @@ fi
 
 # install jupyter lab extensions
 bash -i $script_dir/inst_lab_ext.sh
-ECHO $(DAte),$script_name,$SECONDS >> $log_file
+echo $(date),$script_name,$SECONDS >> $log_file
