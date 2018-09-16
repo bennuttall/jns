@@ -45,4 +45,4 @@ systemctl daemon-reload
 systemctl start jupyter
 systemctl enable jupyter
 
-echo $(date),$script_name,$SECONDS >> $logfile
+echo $(date),$script_name,$SECONDS >> $log_file
