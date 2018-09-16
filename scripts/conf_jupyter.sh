@@ -61,7 +61,7 @@ jupyter nbextension enable --py widgetsnbextension --sys-prefix
 jupyter nbextension enable --py --sys-prefix bqplot
 
 # activate clusters tab in notebook interface
-/home/pi/.venv/jns/bin/ipcluster nbextension enable --user
+$env/bin/ipcluster nbextension enable --user
 
 # install nodejs and node version manager n
 # if node is not yet installed
