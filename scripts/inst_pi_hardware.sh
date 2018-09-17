@@ -6,10 +6,10 @@
 SECONDS=0
 script_name=$(basename -- "$0")
 script_dir=$(pwd)
-log_file="$script_directory/installation_log.csv"
+log_file="$script_dir/installation_log.csv"
 jns_user='pi'
 home_dir="/home/$jns_user"
-env="$home_directory/.venv/jns"
+env="$home_dir/.venv/jns"
 
 if [ $(id -u) = 0 ]
 then
