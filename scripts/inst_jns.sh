@@ -51,7 +51,7 @@ log_duration "inst_julia.sh"
 
 # install the SQLite3 kernel OPTIONAL
 sudo -u pi ./inst_sqlite.sh
-log_duration "inst_sq_lite.sh"
+log_duration "inst_sqlite.sh"
 
 # install opencv OPTIONAL
 ./inst_opencv.sh
