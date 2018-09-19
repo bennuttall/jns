@@ -10,6 +10,7 @@ log_file="$script_dir/installation_log.csv"
 jns_user='pi'
 home_dir="/home/$jns_user"
 env="$home_dir/.venv/jns"
+revision=$(cat /proc/cpuinfo | grep Revision)
 
 if ! [ $(id -u) = 0 ]; then
    echo "usage: sudo ./$script_name"
@@ -41,4 +42,4 @@ apt -y install python3-venv
 apt -y install libzmq3-dev
 apt -y install sqlite3
 
-echo $(date),$script_name,$SECONDS >> $log_file
+printf "%s %s %s %s %s\n" $(date +"%Y-%m-%d %T") ${revision:10} $script_name $SECONDS >> $log_file

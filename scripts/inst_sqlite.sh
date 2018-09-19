@@ -10,6 +10,7 @@ log_file="$script_dir/installation_log.csv"
 jns_user='pi'
 home_dir="/home/$jns_user"
 env="$home_dir/.venv/jns"
+revision=$(cat /proc/cpuinfo | grep Revision)
 
 if [ $(id -u) = 0 ]
 then
@@ -29,4 +30,5 @@ python setup.py install
 python -m sqlite3_kernel.install
 cd $script_dir
 rm -rf sqlite3-kernel/
-echo $(date),$script_name,$SECONDS >> $log_file
+
+printf "%s %s %s %s %s\n" $(date +"%Y-%m-%d %T") ${revision:10} $script_name $SECONDS >> $log_file
