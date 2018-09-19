@@ -10,7 +10,8 @@ revision=$(cat /proc/cpuinfo | grep Revision)
 SECONDS=0
 
 function log_duration(){
-printf "%s %s %s %s %s\n" $(date +"%Y-%m-%d %T") ${revision:10} "$1" | tee - a $log_file
+printf "%s %s %s %s %s\n" $(date +"%Y-%m-%d %T") ${revision:10} "$1" $SECONDS | tee - a $log_file
+SECONDS=0
 }
 
 function log_message(){
