@@ -1,12 +1,10 @@
 #!/bin/bash
 # script name:     inst_lab_ext.sh
-# last modified:   2018/05/29
+# last modified:   2018/09/19
 # sudo:            no
 
-SECONDS=0
 script_name=$(basename -- "$0")
 script_dir=`dirname $0`
-log_file="$script_dir/installation_log.csv"
 jns_user='pi'
 home_dir="/home/$jns_user"
 env="$home_dir/.venv/jns"
