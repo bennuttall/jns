@@ -46,4 +46,4 @@ systemctl daemon-reload
 systemctl start jupyter
 systemctl enable jupyter
 
-pirint "%s %s %s %s\n" $(date +"%Y-%m-%d %T") ${revision:10} $script_name $SECONDS >> $log_file
+print "%s %s %s %s\n" $(date +"%Y-%m-%d %T") ${revision:10} $script_name $SECONDS >> $log_file
