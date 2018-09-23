@@ -1,6 +1,11 @@
+# 24 September 2018
+* updated requirements.txt
+* fixed issue #26
+* removed quit button frm interface as it would shut down the server
+
 # 15 September 2018
 * updated requirements.txt
-* simpified requirements using pipdeptree -f --warn silence | grep -P '^[\w0-9\-=.]+'
+* simplified requirements using pipdeptree -f --warn silence | grep -P '^[\w0-9\-=.]+'
 
 # 14 Septmber 2018
 * updated requirements.txt
