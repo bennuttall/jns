@@ -1,7 +1,11 @@
+# 1 October 2018
+* added tensorflow
+* updated requirements.txt
+
 # 24 September 2018
 * updated requirements.txt
 * fixed issue #26
-* removed quit button frm interface as it would shut down the server
+* removed quit button from interface as it would shut down the server
 
 # 15 September 2018
 * updated requirements.txt
